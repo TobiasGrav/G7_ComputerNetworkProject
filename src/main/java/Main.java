@@ -9,5 +9,4 @@ public class Main {
         //Subscriber subscriber = new Subscriber(MQTT_SERVER_IP, MQTT_SERVER_PORT);
         //Publisher publisher = new Publisher(MQTT_SERVER_IP, MQTT_SERVER_PORT);
     }
-
 }

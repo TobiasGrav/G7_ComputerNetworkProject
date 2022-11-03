@@ -22,8 +22,10 @@ public class Publisher {
         mqttClient.publish("G7/Test", createMessage(message));
     }
 
-    public void disconnect() throws MqttException {
+    public void close() throws MqttException {
         mqttClient.disconnect();
+        mqttClient.close();
+        System.out.println("--- Connection Disconnected ---");
     }
 
 }

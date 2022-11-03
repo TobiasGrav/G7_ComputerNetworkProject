@@ -1,6 +1,5 @@
-import org.eclipse.paho.client.mqttv3.MqttClient;
-import org.eclipse.paho.client.mqttv3.MqttException;
-import org.eclipse.paho.client.mqttv3.MqttMessage;
+import org.eclipse.paho.client.mqttv3.*;
+import org.eclipse.paho.client.mqttv3.internal.wire.MqttWireMessage;
 
 public class Subscriber {
 
@@ -17,8 +16,9 @@ public class Subscriber {
         System.out.println("--- Subscribed To Topic ---");
     }
 
-    public void disconnect() throws MqttException {
+    public void close() throws MqttException {
         mqttClient.disconnect();
+        mqttClient.close();
         System.out.println("--- Connection Disconnected ---");
     }
 

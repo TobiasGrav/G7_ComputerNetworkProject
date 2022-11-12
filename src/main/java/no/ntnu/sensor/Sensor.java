@@ -1,3 +1,5 @@
+package no.ntnu.sensor;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -52,7 +54,9 @@ public class Sensor {
         return totalPeople;
     }
 
+    //TODO
     public void setTotalPeople(int totalPeople) {
+        totalPeople ++;
         this.totalPeople = totalPeople;
     }
 }

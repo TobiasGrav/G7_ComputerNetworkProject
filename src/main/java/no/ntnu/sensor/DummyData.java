@@ -6,10 +6,12 @@ import org.springframework.context.ApplicationListener;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.logging.Logger;
 
-
+@Component
 public class DummyData implements ApplicationListener<ApplicationReadyEvent> {
     private SensorRepository sensorRepository;
 
@@ -28,9 +30,15 @@ public class DummyData implements ApplicationListener<ApplicationReadyEvent> {
         }
 
         logger.info("Importing test data...");
-        Sensor sensor1 = new Sensor(1L, LocalDateTime.now(), 1);
-        Sensor sensor2 = new Sensor(2L, LocalDateTime.now(), 1);
+        List<Sensor> sensors = new ArrayList();
+        int hours = 20;
+        Random random = new Random();
+        for(long i = 1; i <= hours; i++){
+            Sensor sensor1 = new Sensor(i, LocalDateTime.now().minusHours(hours - i), random.nextInt(5, 16));
+            sensors.add(sensor1);
+        }
 
-        sensorRepository.saveAll(List.of(sensor1, sensor2));
+
+        sensorRepository.saveAll(sensors);
     }
 }

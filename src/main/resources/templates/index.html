@@ -1,16 +1,68 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org/">
-
-
 <head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Computer Networks">
     <title>Computer Networks</title>
-    <link rel="stylesheet" th:href="@{CSS/index.css}">
+    <link rel="stylesheet" th:href="@{css/index.css}">
+    <script th:src="@{scripts/nav.js}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 </head>
 
 <body>
-    <p>hei</p>
+    <section class="header">
+        <h1>Sensor data</h1>
+    </section>
+    <section class="graph">
+        <canvas id="myChart" style="width:100%;max-width:700px"></canvas>
+        <div class="graphs">
+            <script th:inline="javascript">
+            var xValues = [[${xValues}]];
+            var yValues = [[${yValues}]];
+
+            new Chart("myChart", {
+              type: "line",
+              data: {
+                labels: xValues,
+                datasets: [{
+                  fill: false,
+                  lineTension: 0,
+                  backgroundColor: "rgba(0,0,255,1.0)",
+                  borderColor: "rgba(0,0,255,0.1)",
+                  data: yValues
+                }]
+              },
+              options: {
+                legend: {display: false},
+                scales: {
+                  yAxes: [{ticks: {min: 6, max:16}}],
+                }
+              }
+            });
+        </script>
+        </div>
+    </section>
+    <section class="table-section">
+            <table class="table">
+                <tr>
+                    <th>
+                        Id
+                    </th>
+                    <th>
+                        Time
+                    </th>
+                    <th>
+                        Total People
+                    </th>
+                </tr>
+                <tr th:each="sensor:${allsensorlist}">
+                    <td th:text="${sensor.id}"></td>
+                    <td th:text="${sensor.dateAndTime}"></td>
+                    <td th:text="${sensor.totalPeople}"></td>
+                </tr>
+            </table>
+    </section>
 </body>
 
 </html>

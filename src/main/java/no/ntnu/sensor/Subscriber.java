@@ -1,7 +1,6 @@
 package no.ntnu.sensor;
 
 import org.eclipse.paho.client.mqttv3.*;
-import org.eclipse.paho.client.mqttv3.internal.wire.MqttWireMessage;
 
 public class Subscriber {
 

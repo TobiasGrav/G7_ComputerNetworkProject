@@ -14,7 +14,7 @@ public class SensorController {
     SensorService sensorService;
 
     @GetMapping
-    public List<Sensor> getAll() {
+    public List<SensorData> getAll() {
         return sensorService.getAll();
     }
 
@@ -25,11 +25,11 @@ public class SensorController {
      * @return Author with the given ID or status 404
      */
     @GetMapping("/{id}")
-    public ResponseEntity<Sensor> getOne(@PathVariable Integer id) {
-        ResponseEntity<Sensor> response;
-        Sensor sensor = sensorService.findSensorById(id);
-        if (sensor != null) {
-            response = new ResponseEntity<>(sensor, HttpStatus.OK);
+    public ResponseEntity<SensorData> getOne(@PathVariable Integer id) {
+        ResponseEntity<SensorData> response;
+        SensorData sensorData = sensorService.findSensorById(id);
+        if (sensorData != null) {
+            response = new ResponseEntity<>(sensorData, HttpStatus.OK);
         }
         else {
             response = new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -37,11 +37,15 @@ public class SensorController {
         return response;
     }
 
-
+    /**
+     * Adding sensorData data to database
+     * @param sensorData SensorData
+     * @return response OK if added, BAD REQUEST if not added
+     */
     @PostMapping
-    public ResponseEntity<String> add(@RequestBody Sensor sensor) {
+    public ResponseEntity<String> add(@RequestBody SensorData sensorData) {
         ResponseEntity<String> response;
-        if (sensorService.addNewSensor(sensor)) {
+        if (sensorService.addNewSensor(sensorData)) {
             response = new ResponseEntity<>(HttpStatus.OK);
         } else {
             response = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
@@ -49,10 +53,16 @@ public class SensorController {
         return response;
     }
 
+
+    /**
+     * Deleting sensorData data from database
+     * @param sensorData SensorData
+     * @return response OK, if deleted and NOT FOUND if not found
+     */
     @DeleteMapping
-    public ResponseEntity<String> delete(@PathVariable Sensor sensor) {
+    public ResponseEntity<String> delete(@PathVariable SensorData sensorData) {
         ResponseEntity<String> response;
-        if (sensorService.deleteSensor(sensor)) {
+        if (sensorService.deleteSensor(sensorData)) {
             response = new ResponseEntity<>(HttpStatus.OK);
         } else {
             response = new ResponseEntity<>(HttpStatus.NOT_FOUND);

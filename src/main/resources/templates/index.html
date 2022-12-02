@@ -56,10 +56,10 @@
                         Total People
                     </th>
                 </tr>
-                <tr th:each="sensor:${allsensorlist}">
-                    <td th:text="${sensor.id}"></td>
-                    <td th:text="${sensor.dateAndTime}"></td>
-                    <td th:text="${sensor.totalPeople}"></td>
+                <tr th:each="sensorData:${allsensorlist}">
+                    <td th:text="${sensorData.id}"></td>
+                    <td th:text="${sensorData.dateAndTime}"></td>
+                    <td th:text="${sensorData.totalPeople}"></td>
                 </tr>
             </table>
     </section>

@@ -21,6 +21,10 @@ public class DummyData implements ApplicationListener<ApplicationReadyEvent> {
 
     private final Logger logger = Logger.getLogger("DummyInit");
 
+    /**
+     * Add example data
+     * @param event application ready event
+     */
     @SneakyThrows
     @Override
     public void onApplicationEvent(ApplicationReadyEvent event) {
@@ -28,17 +32,14 @@ public class DummyData implements ApplicationListener<ApplicationReadyEvent> {
             logger.info("Data already exists");
             return;
         }
-
         logger.info("Importing test data...");
-        List<Sensor> sensors = new ArrayList();
+        List<SensorData> sensorData = new ArrayList();
         int hours = 20;
         Random random = new Random();
         for(long i = 1; i <= hours; i++){
-            Sensor sensor1 = new Sensor(i, LocalDateTime.now().minusHours(hours - i), random.nextInt(5, 16));
-            sensors.add(sensor1);
+            SensorData sensorData1 = new SensorData(i, LocalDateTime.now().minusHours(hours - i), random.nextInt(5, 16));
+            sensorData.add(sensorData1);
         }
-
-
-        sensorRepository.saveAll(sensors);
+        sensorRepository.saveAll(sensorData);
     }
 }

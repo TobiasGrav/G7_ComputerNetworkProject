@@ -2,10 +2,8 @@ package no.ntnu.sensor;
 
 import org.eclipse.paho.client.mqttv3.MqttException;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 @SpringBootApplication
 @EnableJpaRepositories
@@ -18,7 +16,9 @@ public class Main {
 
     public static void main(String[] args) throws MqttException {
         //no.ntnu.sensor.Subscriber subscriber = new no.ntnu.sensor.Subscriber(MQTT_SERVER_IP, MQTT_SERVER_PORT);
-
+        //Subscriber subscriber = new Subscriber(MQTT_SERVER_IP, MQTT_SERVER_PORT);
+        Publisher publisher = new Publisher(MQTT_SERVER_IP, MQTT_SERVER_PORT);
+        publisher.publishMessage("hei");
         SpringApplication.run(Main.class, args);
     }
 

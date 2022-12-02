@@ -17,11 +17,11 @@ public class WebController {
     @RequestMapping("/")
     public String getHome(Model model) {
 
-        List<Sensor> sensors = sensorService.getAll();
+        List<SensorData> sensorData = sensorService.getAll();
         List<Integer> xValues = new ArrayList<>();
         List<Integer> yValues = new ArrayList<>();
 
-        sensors.forEach(sensor -> {
+        sensorData.forEach(sensor -> {
             xValues.add(sensor.getDateAndTime().getHour());
             yValues.add(sensor.getTotalPeople());
 

@@ -4,31 +4,29 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.time.LocalDateTime;
-import java.util.List;
 
 /**
  * Represents a resource: a sensor.
  */
 @Entity
-public class Sensor {
+public class SensorData {
     @Id
     @Column(name = "id", nullable = false)
     private Long id;
     private LocalDateTime dateAndTime;
-    // TODO check if person goes out or inside the building
     private int totalPeople;
 
     /**
      * Empty constructor
      */
-    public Sensor() {
+    public SensorData() {
     }
 
     /**
      * Constructor with parameters
      * @param id Long
      */
-    public Sensor(Long id, LocalDateTime dateAndTime, int totalPeople) {
+    public SensorData(Long id, LocalDateTime dateAndTime, int totalPeople) {
         this.id = id;
         this.dateAndTime = dateAndTime;
         this.totalPeople = totalPeople;

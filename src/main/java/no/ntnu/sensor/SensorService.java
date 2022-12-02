@@ -17,53 +17,78 @@ public class SensorService {
      * @param iterable Iterable<Product>
      * @return list of products
      */
-    public List<Sensor> iterableToList(Iterable<Sensor> iterable) {
-        List<Sensor> list = new LinkedList<>();
+    public List<SensorData> iterableToList(Iterable<SensorData> iterable) {
+        List<SensorData> list = new LinkedList<>();
         iterable.forEach(list::add);
         return list;
     }
 
-    public Sensor findSensorById(int id) {
-        Optional<Sensor> sensor = sensorRepository.findById(id);
+    /**
+     * Find sensor data by ID
+     * @param id id to be found
+     * @return sensor data if found, or null if not
+     */
+    public SensorData findSensorById(int id) {
+        Optional<SensorData> sensor = sensorRepository.findById(id);
         return sensor.orElse(null);
     }
 
-    public List<Sensor> getAll() {
+    /**
+     * Get list of sensor data
+     * @return list of sensor data
+     */
+    public List<SensorData> getAll() {
         return iterableToList(sensorRepository.findAll());
     }
 
-    public boolean addNewSensor(Sensor sensor) {
+    /**
+     * Add new sensor data
+     * @param sensorData sensor data to be added
+     * @return true if added, false if not
+     */
+    public boolean addNewSensor(SensorData sensorData) {
         boolean added = false;
-        if (sensor != null) {
-            sensorRepository.save(sensor);
+        if (sensorData != null) {
+            sensorRepository.save(sensorData);
             added = true;
             }
         return added;
     }
 
-    public boolean deleteSensor(Sensor sensor) {
+    /**
+     * Delete sensor data
+     * @param sensorData sensor data to be deleted
+     * @return true if deleted, false if not
+     */
+    public boolean deleteSensor(SensorData sensorData) {
         boolean deleted = false;
-        if (sensor != null) {
-            sensorRepository.delete(sensor);
+        if (sensorData != null) {
+            sensorRepository.delete(sensorData);
             deleted = true;
         }
         return deleted;
     }
 
-    public String updateSensor(int id, Sensor sensor) {
-        Sensor existingSensor = findSensorById(id);
+    /**
+     * Update sensor data
+     * @param id id that needs to be updated
+     * @param sensorData sensor data that is updating
+     * @return null if updated, error message if not
+     */
+    public String updateSensor(int id, SensorData sensorData) {
+        SensorData existingSensorData = findSensorById(id);
         String errorMessage = null;
-        if (existingSensor == null) {
-            errorMessage = "No sensor with " + id + "found";
+        if (existingSensorData == null) {
+            errorMessage = "No sensorData with " + id + "found";
         }
-        if (sensor == null) {
+        if (sensorData == null) {
             errorMessage = "Wrong data in request body";
-        } else if (sensor.getId() != id) {
+        } else if (sensorData.getId() != id) {
             errorMessage = "Wrong id, does not match";
         }
 
         if (errorMessage == null) {
-            sensorRepository.save(sensor);
+            sensorRepository.save(sensorData);
         }
         return errorMessage;
     }

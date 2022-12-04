@@ -11,15 +11,31 @@ public class CallBack implements MqttCallback {
 
     private SensorService sensorService;
 
+    /**
+     * Creates instance of CallBack
+     *
+     * @param sensorService given sensorService
+     */
     public CallBack(SensorService sensorService){
         this.sensorService = sensorService;
     }
 
+    /**
+     * Displays connection lost in terminal if exception is thrown
+     *
+     * @param throwable the thrown exception
+     */
     public void connectionLost(Throwable throwable) {
         System.out.println("Connection to MQTT broker lost!");
     }
 
-    public void messageArrived(String s, MqttMessage mqttMessage) throws Exception {
+    /**
+     * Formatting mqtt message, and sends it to the database
+     *
+     * @param s string
+     * @param mqttMessage message to be formatted
+     */
+    public void messageArrived(String s, MqttMessage mqttMessage) {
         System.out.println("Message received: "+ new String(mqttMessage.getPayload()) );
         this.mqttMessage = mqttMessage;
         System.out.println(sensorService);
@@ -43,9 +59,10 @@ public class CallBack implements MqttCallback {
     }
 
     /**
-     * !TODO write documentation here
-     * @param number
-     * @return
+     * Parses string number to int value and returns it.
+     *
+     * @param number string number to be parsed to int
+     * @return parsed int
      */
     public int parseFromString(String number){
         return Integer.parseInt(number);
@@ -54,6 +71,11 @@ public class CallBack implements MqttCallback {
     public void deliveryComplete(IMqttDeliveryToken iMqttDeliveryToken) {
     }
 
+    /**
+     * Fetches the MQTT-message and returns it.
+     *
+     * @return MQTT-message
+     */
     public MqttMessage getMqttMessage() {
         return this.mqttMessage;
     }

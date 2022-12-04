@@ -25,7 +25,7 @@ public class DummyData implements ApplicationListener<ApplicationReadyEvent> {
     private final Logger logger = Logger.getLogger("DummyInit");
 
     /**
-     * Add example data
+     * Add example data per 20 hours
      * @param event application ready event
      */
     @SneakyThrows

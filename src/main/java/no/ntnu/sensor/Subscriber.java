@@ -1,7 +1,6 @@
 package no.ntnu.sensor;
 
 import org.eclipse.paho.client.mqttv3.*;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -11,7 +10,6 @@ public class Subscriber {
     private CallBack callBack;
 
     private SensorService sensorService;
-
 
     public Subscriber(SensorService sensorService) throws MqttException {
         this.sensorService = sensorService;
@@ -24,16 +22,17 @@ public class Subscriber {
         System.out.println("--- Subscribed To Topic ---");
     }
 
+    /*
+    public Subscriber(String ip, String port) throws MqttException {
+        mqttClient = new MqttClient("tcp://" + ip + ":" + port, MqttClient.generateClientId());
+        callBack = new CallBack();
+        mqttClient.setCallback(callBack);
+        mqttClient.connect();
+        System.out.println("--- Connection Established ---");
+        mqttClient.subscribe("G7/Test");
+        System.out.println("--- Subscribed To Topic ---");
+    }*/
 
-//    public Subscriber(String ip, String port) throws MqttException {
-//        mqttClient = new MqttClient("tcp://" + ip + ":" + port, MqttClient.generateClientId());
-//        callBack = new CallBack();
-//        mqttClient.setCallback(callBack);
-//        mqttClient.connect();
-//        System.out.println("--- Connection Established ---");
-//        mqttClient.subscribe("G7/Test");
-//        System.out.println("--- Subscribed To Topic ---");
-//    }
 
     public void close() throws MqttException {
         mqttClient.disconnect();

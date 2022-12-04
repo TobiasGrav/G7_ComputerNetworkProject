@@ -1,6 +1,5 @@
 package no.ntnu.sensor;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.LinkedList;
@@ -9,8 +8,11 @@ import java.util.Optional;
 
 @Service
 public class SensorService {
-    @Autowired
     private SensorRepository sensorRepository;
+
+    public SensorService(SensorRepository sensorRepository){
+        this.sensorRepository = sensorRepository;
+    }
 
     /**
      * Makes iterable to list of products
@@ -51,7 +53,7 @@ public class SensorService {
         if (sensorData != null) {
             sensorRepository.save(sensorData);
             added = true;
-            }
+        }
         return added;
     }
 

@@ -2,6 +2,7 @@ package no.ntnu.sensor;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.time.LocalDateTime;
 
@@ -11,6 +12,7 @@ import java.time.LocalDateTime;
 @Entity
 public class SensorData {
     @Id
+    @GeneratedValue
     @Column(name = "id", nullable = false)
     private Long id;
     private LocalDateTime dateAndTime;
@@ -53,7 +55,6 @@ public class SensorData {
         return totalPeople;
     }
 
-    //TODO
     public void setTotalPeople(int totalPeople) {
         totalPeople ++;
         this.totalPeople = totalPeople;

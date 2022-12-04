@@ -19,7 +19,12 @@ public class Main {
     static final String MQTT_SERVER_IP = "129.241.152.12";
     static final String MQTT_SERVER_PORT = "1883";
 
-    public static void main(String[] args) throws MqttException, InterruptedException {
+    /**
+     * Runs the application
+     *
+     * @param args command line args
+     */
+    public static void main(String[] args) {
         SpringApplication.run(Main.class, args);
         //Subscriber subscriber = new Subscriber(MQTT_SERVER_IP, MQTT_SERVER_PORT);
         //Publisher publisher = new Publisher(MQTT_SERVER_IP, MQTT_SERVER_PORT);
@@ -27,6 +32,12 @@ public class Main {
         //publisher.disconnect();
     }
 
+    /**
+     * Starts application
+     *
+     * @throws MqttException
+     * @throws InterruptedException
+     */
     public static void StartApplication() throws MqttException, InterruptedException {
         Publisher publisher = new Publisher(MQTT_SERVER_IP, MQTT_SERVER_PORT);
         for (SensorData data : makeSensorData()) {
@@ -36,6 +47,11 @@ public class Main {
         }
     }
 
+    /**
+     * Simulates a sensor making sensor data and returns the data made.
+     *
+     * @return the made sensor data
+     */
     public static List<SensorData> makeSensorData() {
         List<SensorData> sensorData = new ArrayList();
         int hours = 30;

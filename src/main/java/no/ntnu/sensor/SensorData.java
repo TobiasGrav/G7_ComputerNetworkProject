@@ -58,4 +58,14 @@ public class SensorData {
         totalPeople ++;
         this.totalPeople = totalPeople;
     }
+
+    public String getSensorDataAsString(){
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append(dateAndTime.toLocalDate());
+        stringBuilder.append("<");
+        stringBuilder.append(dateAndTime.toLocalTime());
+        stringBuilder.append("<");
+        stringBuilder.append(totalPeople);
+        return stringBuilder.toString();
+    }
 }

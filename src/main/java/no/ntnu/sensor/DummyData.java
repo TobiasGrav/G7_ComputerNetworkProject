@@ -11,6 +11,9 @@ import java.util.List;
 import java.util.Random;
 import java.util.logging.Logger;
 
+/**
+ * Responsible for creating dummy data for the purpose of demonstrating that the application functions.
+ */
 @Component
 public class DummyData implements ApplicationListener<ApplicationReadyEvent> {
     private SensorRepository sensorRepository;

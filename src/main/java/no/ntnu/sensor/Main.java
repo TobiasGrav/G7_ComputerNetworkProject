@@ -13,8 +13,6 @@ import java.util.Random;
 
 @SpringBootApplication
 @EnableJpaRepositories
-///Ikke bruk denne bare på konfigurasjons klasser
-///@EnableWebMvc
 public class Main {
     static final String MQTT_SERVER_IP = "129.241.152.12";
     static final String MQTT_SERVER_PORT = "1883";

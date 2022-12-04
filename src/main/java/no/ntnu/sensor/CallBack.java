@@ -5,6 +5,9 @@ import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;
 import org.eclipse.paho.client.mqttv3.MqttCallback;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
 
+/**
+ * Responsible for receiving, formatting and adding messages to a database.
+ */
 public class CallBack implements MqttCallback {
 
     private MqttMessage mqttMessage = new MqttMessage("No message received.".getBytes());

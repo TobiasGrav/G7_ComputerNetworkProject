@@ -35,7 +35,7 @@
     padding: 5px 5px 5px 0;
 }
 
-.table{
+table{
     width: 74.5%;
     padding: 40px;
 
@@ -59,7 +59,18 @@ th {
     padding: 22px;
 }
 
-.info {
+footer {
     display: flex;
     justify-content: center;
+}
+
+#myTable td {
+  padding: 0.25em;
+}
+
+span {
+  display: block;
+  margin-top: 0.5em;
+  display: flex;
+  justify-content: center;
 }

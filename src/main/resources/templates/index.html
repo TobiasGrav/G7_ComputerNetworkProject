@@ -11,11 +11,8 @@
 </head>
 
 <body>
-    <section class="header">
+<section class="header">
         <h1>Sensor data</h1>
-    </section>
-    <section>
-        <h3></h3>
     </section>
     <section class="graph">
         <canvas id="myChart" style="width:100%;max-width:700px"></canvas>
@@ -47,7 +44,7 @@
         </div>
     </section>
     <section class="table-section">
-            <table class="table">
+            <table class="table" id="table">
                 <tr>
                     <th>
                         Id
@@ -66,16 +63,37 @@
                     <td th:text="${sensorData.id}"></td>
                     <td th:text="${sensorData.date}"></td>
                     <td th:text="${sensorData.time}"></td>
-                    <td th:text="${sensorData.totalPeople}"></td>
+                    <td th:text="${sensorData.totalPeople}" class="count-me"></td>
                 </tr>
             </table>
     </section>
 
     <section>
+        <span id="val"></span>
+        <span id="val2"></span>
+
+        <script th:inline="javascript">
+                var table = document.getElementById("table"), sumVal = 0;
+                var total = 0;
+                for (var i = 1; i < table.rows.length; i++) {
+                  sumVal = sumVal + parseInt(table.rows[i].cells[2].innerHTML);
+                }
+                for (var i = 1; i < table.rows.length; i++) {
+                    total += parseInt(table.rows[i].cells[2].innerHTML);
+                    }
+                var avg = total / table.rows.length;
+                console.log(avg);
+                document.getElementById("val").innerHTML = "Total people passing in a day: " + sumVal;
+                document.getElementById("val2").innerHTML = "Average people passing: " + avg;
+                console.log(sumVal);
+        </script>
+    </section>
+
+    <footer>
         <p class="info">
             This is a project in the course Data Communication and Network Programming at NTNU Ålesund.
         </p>
-    </section>
+    </footer>
 </body>
 
 </html>

@@ -18,7 +18,7 @@ public class Publisher {
      *
      * @param ip IP address of server which is to receive the data.
      * @param port Port of the server which is to receive the data.
-     * @throws MqttException
+     * @throws MqttException If client can not connect to server.
      */
     public Publisher(String ip, String port) throws MqttException {
         mqttClient = new MqttClient("tcp://" + ip + ":" + port, MqttClient.generateClientId());
@@ -42,7 +42,8 @@ public class Publisher {
     /**
      * Responsible for uploading data to the server.
      * @param message message which is to be uploaded as String.
-     * @throws MqttException
+     * @throws MqttException If the client is not connected to the server or
+     *         has encountered another exception.
      */
     public void publishMessage(String message) throws MqttException {
         mqttClient.publish("G7/Test", createMessage(message));
@@ -51,7 +52,7 @@ public class Publisher {
     /**
      * Closes connection to server.
      *
-     * @throws MqttException
+     * @throws MqttException If the client is already disconnected.
      */
     public void close() throws MqttException {
         mqttClient.disconnect();

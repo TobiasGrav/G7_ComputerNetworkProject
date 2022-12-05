@@ -32,10 +32,10 @@ public class Main {
     }
 
     /**
-     * Starts application
+     * Starts application.
      *
-     * @throws MqttException
-     * @throws InterruptedException
+     * @throws MqttException If client can not connect to server.
+     * @throws InterruptedException If sleep is interrupted.
      */
     public static void StartApplication() throws MqttException, InterruptedException {
         Publisher publisher = new Publisher(MQTT_SERVER_IP, MQTT_SERVER_PORT);
@@ -47,9 +47,9 @@ public class Main {
     }
 
     /**
-     * Simulates a sensor making sensor data and returns the data made.
+     * Simulates a sensor making sensor data and returns the data.
      *
-     * @return the made sensor data
+     * @return the made sensor data.
      */
     public static List<SensorData> makeSensorData() {
         List<SensorData> sensorData = new ArrayList();

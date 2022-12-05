@@ -13,6 +13,11 @@ public class SensorController {
     @Autowired
     SensorService sensorService;
 
+    /**
+     * Returns all available data.
+     *
+     * @return A List containing all SensorData.
+     */
     @GetMapping
     public List<SensorData> getAll() {
         return sensorService.getAll();

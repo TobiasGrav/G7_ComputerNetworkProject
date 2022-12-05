@@ -15,9 +15,10 @@ public class SensorService {
     }
 
     /**
-     * Makes iterable to list of products
+     * Makes iterable to list of products.
+     *
      * @param iterable Iterable<Product>
-     * @return list of products
+     * @return list of products.
      */
     public List<SensorData> iterableToList(Iterable<SensorData> iterable) {
         List<SensorData> list = new LinkedList<>();
@@ -26,9 +27,10 @@ public class SensorService {
     }
 
     /**
-     * Find sensor data by ID
-     * @param id id to be found
-     * @return sensor data if found, or null if not
+     * Find sensor data by ID.
+     *
+     * @param id id to be found.
+     * @return sensor data if found, or null if not.
      */
     public SensorData findSensorById(int id) {
         Optional<SensorData> sensor = sensorRepository.findById(id);
@@ -36,17 +38,19 @@ public class SensorService {
     }
 
     /**
-     * Get list of sensor data
-     * @return list of sensor data
+     * Get list of sensor data.
+     *
+     * @return list of sensor data.
      */
     public List<SensorData> getAll() {
         return iterableToList(sensorRepository.findAll());
     }
 
     /**
-     * Add new sensor data
-     * @param sensorData sensor data to be added
-     * @return true if added, false if not
+     * Add new sensor data.
+     *
+     * @param sensorData sensor data to be added.
+     * @return true if added, false if not.
      */
     public boolean addNewSensorData(SensorData sensorData) {
         boolean added = false;
@@ -59,6 +63,7 @@ public class SensorService {
 
     /**
      * Delete sensor data
+     *
      * @param sensorData sensor data to be deleted
      * @return true if deleted, false if not
      */
@@ -73,6 +78,7 @@ public class SensorService {
 
     /**
      * Update sensor data.
+     *
      * @param id id that needs to be updated.
      * @param sensorData sensor data that is updating.
      * @return null if updated, error message if not.

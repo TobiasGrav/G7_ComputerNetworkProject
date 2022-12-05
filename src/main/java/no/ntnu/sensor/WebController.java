@@ -11,9 +11,18 @@ import java.util.List;
 @Controller
 public class WebController {
 
+    /**
+     * Responsible for displaying data.
+     */
     @Autowired
     private SensorService sensorService;
 
+    /**
+     * Creates a graph of how many people are estimated to be inside area and returns the HTML file.
+     *
+     * @param model Model of the page.
+     * @return index HTML file.
+     */
     @RequestMapping("/")
     public String getHome(Model model) {
 

@@ -18,14 +18,13 @@ public class SensorData {
     private LocalDateTime dateAndTime;
     private int totalPeople;
 
-    /**
-     * Empty constructor
-     */
+    /** Empty constructor */
     public SensorData() {
     }
 
     /**
-     * Constructor with parameters
+     * Constructor with parameters.
+     *
      * @param id Long
      */
     public SensorData(Long id, LocalDateTime dateAndTime, int totalPeople) {
@@ -35,31 +34,44 @@ public class SensorData {
 
     }
 
+    /** Returns id */
     public Long getId() {
         return id;
     }
 
+    /** Sets id */
     public void setId(Long id) {
         this.id = id;
     }
 
+    /** Returns dateAndTie */
     public LocalDateTime getDateAndTime() {
         return dateAndTime;
     }
 
+    /** Sets datAndTime */
     public void setDateAndTime(LocalDateTime dateAndTime) {
         this.dateAndTime = dateAndTime;
     }
 
+    /** Returns totalPeople */
     public int getTotalPeople() {
         return totalPeople;
     }
 
+    /** Sets totalPeople */
     public void setTotalPeople(int totalPeople) {
         totalPeople ++;
         this.totalPeople = totalPeople;
     }
 
+    /**
+     * Transforms sensorData to a String and returns it.
+     *
+     * <b>String format: yyyy-mm-dd<hh:mm:ss<totalPeople.</b>
+     *
+     * @return String containing sensorData.
+     */
     public String getSensorDataAsString(){
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append(dateAndTime.toLocalDate());

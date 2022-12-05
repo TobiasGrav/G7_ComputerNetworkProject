@@ -5,7 +5,9 @@ import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.ApplicationListener;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -40,7 +42,7 @@ public class DummyData implements ApplicationListener<ApplicationReadyEvent> {
         int hours = 20;
         Random random = new Random();
         for(long i = 1; i <= hours; i++){
-            SensorData sensorData1 = new SensorData(i, LocalDateTime.now().minusHours(hours - i), random.nextInt(5, 16));
+            SensorData sensorData1 = new SensorData(i, LocalDate.now(), LocalTime.now().minusHours(hours - i), random.nextInt(5, 16));
             sensorData.add(sensorData1);
         }
         sensorRepository.saveAll(sensorData);

@@ -3,6 +3,7 @@
     margin: 0;
     padding: 0;
     font-family: 'Lato', sans-serif;
+    background: gainsboro;
 }
 
 .header {
@@ -21,9 +22,6 @@
     justify-content: center;
 }
 
-.graphs{
-}
-
 #users-to-be-filled-from-db div{
     padding: 30px;
     border: solid black 1px;
@@ -38,5 +36,30 @@
 }
 
 .table{
-    width: 100;
+    width: 74.5%;
+    padding: 40px;
+
+}
+
+td, th {
+    border: 1px solid;
+    text-align: center;
+    padding: 5px 10px 0;
+    background: white;
+}
+
+th {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#myChart {
+    border: 1px solid black;
+    background: white;
+    padding: 22px;
+}
+
+.info {
+    display: flex;
+    justify-content: center;
 }

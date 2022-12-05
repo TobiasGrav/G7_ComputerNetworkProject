@@ -5,7 +5,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -23,12 +25,12 @@ public class Main {
      * @param args command line args
      */
     public static void main(String[] args) throws MqttException, InterruptedException {
-        //SpringApplication.run(Main.class, args);
+        SpringApplication.run(Main.class, args);
         //Subscriber subscriber = new Subscriber(MQTT_SERVER_IP, MQTT_SERVER_PORT);
         //Publisher publisher = new Publisher(MQTT_SERVER_IP, MQTT_SERVER_PORT);
         //publisher.publishMessage("Hei");
         //publisher.disconnect();
-        StartApplication();
+        //StartApplication();
     }
 
     /**
@@ -56,7 +58,7 @@ public class Main {
         int hours = 30;
         Random random = new Random();
         for (long i = 1; i <= hours; i++) {
-            SensorData sensorData1 = new SensorData(i, LocalDateTime.now().minusHours(hours - i), random.nextInt(5, 16));
+            SensorData sensorData1 = new SensorData(i, LocalDate.now(), LocalTime.now().minusHours(hours - i), random.nextInt(5, 16));
             sensorData.add(sensorData1);
         }
         return sensorData;

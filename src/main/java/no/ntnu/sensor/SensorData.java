@@ -1,10 +1,14 @@
 package no.ntnu.sensor;
 
+import org.apache.tomcat.jni.Local;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 /**
  * Represents a resource: a sensor.
@@ -15,7 +19,25 @@ public class SensorData {
     @GeneratedValue
     @Column(name = "id", nullable = false)
     private Long id;
-    private LocalDateTime dateAndTime;
+
+    public LocalDate getDate() {
+        return date;
+    }
+
+    public void setDate(LocalDate date) {
+        this.date = date;
+    }
+
+    public LocalTime getTime() {
+        return time;
+    }
+
+    public void setTime(LocalTime time) {
+        this.time = time;
+    }
+
+    private LocalDate date;
+    private LocalTime time;
     private int totalPeople;
 
     /** Empty constructor */
@@ -27,9 +49,10 @@ public class SensorData {
      *
      * @param id Long
      */
-    public SensorData(Long id, LocalDateTime dateAndTime, int totalPeople) {
+    public SensorData(Long id, LocalDate date, LocalTime time, int totalPeople) {
         this.id = id;
-        this.dateAndTime = dateAndTime;
+        this.date = date;
+        this.time = time;
         this.totalPeople = totalPeople;
 
     }
@@ -42,16 +65,6 @@ public class SensorData {
     /** Sets id */
     public void setId(Long id) {
         this.id = id;
-    }
-
-    /** Returns dateAndTie */
-    public LocalDateTime getDateAndTime() {
-        return dateAndTime;
-    }
-
-    /** Sets datAndTime */
-    public void setDateAndTime(LocalDateTime dateAndTime) {
-        this.dateAndTime = dateAndTime;
     }
 
     /** Returns totalPeople */
@@ -74,9 +87,9 @@ public class SensorData {
      */
     public String getSensorDataAsString(){
         StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append(dateAndTime.toLocalDate());
+        stringBuilder.append(date);
         stringBuilder.append("<");
-        stringBuilder.append(dateAndTime.toLocalTime());
+        stringBuilder.append(time);
         stringBuilder.append("<");
         stringBuilder.append(totalPeople);
         return stringBuilder.toString();

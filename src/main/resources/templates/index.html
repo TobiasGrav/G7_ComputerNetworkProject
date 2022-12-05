@@ -14,6 +14,9 @@
     <section class="header">
         <h1>Sensor data</h1>
     </section>
+    <section>
+        <h3></h3>
+    </section>
     <section class="graph">
         <canvas id="myChart" style="width:100%;max-width:700px"></canvas>
         <div class="graphs">
@@ -40,7 +43,7 @@
                 }
               }
             });
-        </script>
+            </script>
         </div>
     </section>
     <section class="table-section">
@@ -48,6 +51,9 @@
                 <tr>
                     <th>
                         Id
+                    </th>
+                    <th>
+                        Date
                     </th>
                     <th>
                         Time
@@ -58,10 +64,17 @@
                 </tr>
                 <tr th:each="sensorData:${allsensorlist}">
                     <td th:text="${sensorData.id}"></td>
-                    <td th:text="${sensorData.dateAndTime}"></td>
+                    <td th:text="${sensorData.date}"></td>
+                    <td th:text="${sensorData.time}"></td>
                     <td th:text="${sensorData.totalPeople}"></td>
                 </tr>
             </table>
+    </section>
+
+    <section>
+        <p class="info">
+            This is a project in the course Data Communication and Network Programming at NTNU Ålesund.
+        </p>
     </section>
 </body>
 

@@ -11,8 +11,11 @@
 </head>
 
 <body>
-<section class="header">
+    <section class="header">
         <h1>Sensor data</h1>
+    </section>
+    <section>
+        <h3 id="val3"></h3>
     </section>
     <section class="graph">
         <canvas id="myChart" style="width:100%;max-width:700px"></canvas>
@@ -86,6 +89,20 @@
                 document.getElementById("val").innerHTML = "Total people passing in a day: " + sumVal;
                 document.getElementById("val2").innerHTML = "Average people passing: " + avg;
                 console.log(sumVal);
+
+
+                var rows = document.getElementById("table").getElementsByTagName("tr");
+
+              for(var i = 0; i < rows.length; i++)
+                  { for (var j = 0; j < rows.length; j++) {
+                    var first = parseInt(table.rows[i].cells[3].innerHTML);
+                    var second = parseInt(table.rows[i+1].cells[3].innerHTML);
+                    var diff = first - second;
+                  }
+
+                console.log("First: "+first+" - second : "+second+" = "+diff);
+                document.getElementById("val3").innerHTML = "Total People in building now: " + diff;
+              }
         </script>
     </section>
 

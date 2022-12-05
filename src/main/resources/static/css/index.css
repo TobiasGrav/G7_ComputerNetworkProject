@@ -37,7 +37,8 @@
 
 table{
     width: 74.5%;
-    padding: 40px;
+    padding: 30px;
+    padding-top: 10px;
 
 }
 
@@ -62,6 +63,7 @@ th {
 footer {
     display: flex;
     justify-content: center;
+    padding: 30px;
 }
 
 #myTable td {
@@ -79,4 +81,11 @@ h3 {
     display:flex;
     justify-content: center;
     padding: 30px;
+}
+
+h4 {
+    display: flex;
+    justify-content: center;
+    padding: 30px;
+    padding-bottom: 0px;
 }

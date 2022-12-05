@@ -45,7 +45,7 @@ public class SensorController {
     @PostMapping
     public ResponseEntity<String> add(@RequestBody SensorData sensorData) {
         ResponseEntity<String> response;
-        if (sensorService.addNewSensor(sensorData)) {
+        if (sensorService.addNewSensorData(sensorData)) {
             response = new ResponseEntity<>(HttpStatus.OK);
         } else {
             response = new ResponseEntity<>(HttpStatus.BAD_REQUEST);

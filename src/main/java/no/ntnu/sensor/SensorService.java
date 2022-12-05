@@ -48,7 +48,7 @@ public class SensorService {
      * @param sensorData sensor data to be added
      * @return true if added, false if not
      */
-    public boolean addNewSensor(SensorData sensorData) {
+    public boolean addNewSensorData(SensorData sensorData) {
         boolean added = false;
         if (sensorData != null) {
             sensorRepository.save(sensorData);
@@ -72,10 +72,10 @@ public class SensorService {
     }
 
     /**
-     * Update sensor data
-     * @param id id that needs to be updated
-     * @param sensorData sensor data that is updating
-     * @return null if updated, error message if not
+     * Update sensor data.
+     * @param id id that needs to be updated.
+     * @param sensorData sensor data that is updating.
+     * @return null if updated, error message if not.
      */
     public String updateSensor(int id, SensorData sensorData) {
         SensorData existingSensorData = findSensorById(id);

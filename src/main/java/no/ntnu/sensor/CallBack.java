@@ -58,7 +58,7 @@ public class CallBack implements MqttCallback {
         LocalDateTime localDateTime = LocalDateTime.of(year, month, day, hour, min, sec);
         int amountPeople = parseFromString(array[2].trim());
 
-        sensorService.addNewSensor(new SensorData(0L, localDateTime, amountPeople));
+        sensorService.addNewSensorData(new SensorData(0L, localDateTime, amountPeople));
     }
 
     /**

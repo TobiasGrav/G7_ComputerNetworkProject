@@ -44,7 +44,7 @@ public class SensorData {
         this.id = id;
     }
 
-    /** Returns dateAndTie */
+    /** Returns dateAndTime */
     public LocalDateTime getDateAndTime() {
         return dateAndTime;
     }

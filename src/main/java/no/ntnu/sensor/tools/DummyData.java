@@ -1,12 +1,13 @@
-package no.ntnu.sensor;
+package no.ntnu.sensor.tools;
 
 import lombok.SneakyThrows;
+import no.ntnu.sensor.sensorData.SensorData;
+import no.ntnu.sensor.sensorData.SensorDataRepository;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.ApplicationListener;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,10 +19,10 @@ import java.util.logging.Logger;
  */
 @Component
 public class DummyData implements ApplicationListener<ApplicationReadyEvent> {
-    private SensorRepository sensorRepository;
+    private SensorDataRepository sensorDataRepository;
 
-    public DummyData(SensorRepository sensorRepository) {
-        this.sensorRepository = sensorRepository;
+    public DummyData(SensorDataRepository sensorDataRepository) {
+        this.sensorDataRepository = sensorDataRepository;
     }
 
     private final Logger logger = Logger.getLogger("DummyInit");
@@ -33,7 +34,7 @@ public class DummyData implements ApplicationListener<ApplicationReadyEvent> {
     @SneakyThrows
     @Override
     public void onApplicationEvent(ApplicationReadyEvent event) {
-        if (sensorRepository.count() > 0) {
+        if (sensorDataRepository.count() > 0) {
             logger.info("Data already exists");
             return;
         }
@@ -45,6 +46,6 @@ public class DummyData implements ApplicationListener<ApplicationReadyEvent> {
             SensorData sensorData1 = new SensorData(i, LocalDate.now(), LocalTime.now().minusHours(hours - i), random.nextInt(5, 16));
             sensorData.add(sensorData1);
         }
-        sensorRepository.saveAll(sensorData);
+        sensorDataRepository.saveAll(sensorData);
     }
 }

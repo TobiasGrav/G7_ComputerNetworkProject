@@ -1,8 +1,10 @@
-package no.ntnu.sensor;
+package no.ntnu.sensor.MQTT;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
 
+import no.ntnu.sensor.sensorData.SensorData;
+import no.ntnu.sensor.sensorData.SensorDataService;
 import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;
 import org.eclipse.paho.client.mqttv3.MqttCallback;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
@@ -14,15 +16,15 @@ public class CallBack implements MqttCallback {
 
     private MqttMessage mqttMessage = new MqttMessage("No message received.".getBytes());
 
-    private SensorService sensorService;
+    private SensorDataService sensorDataService;
 
     /**
      * Creates instance of CallBack
      *
-     * @param sensorService given sensorService
+     * @param sensorDataService given sensorDataService
      */
-    public CallBack(SensorService sensorService){
-        this.sensorService = sensorService;
+    public CallBack(SensorDataService sensorDataService){
+        this.sensorDataService = sensorDataService;
     }
 
     /**
@@ -43,7 +45,7 @@ public class CallBack implements MqttCallback {
     public void messageArrived(String s, MqttMessage mqttMessage) {
         System.out.println("Message received: "+ new String(mqttMessage.getPayload()) );
         this.mqttMessage = mqttMessage;
-        System.out.println(sensorService);
+        System.out.println(sensorDataService);
         String message = mqttMessage.toString();
         String[] array = message.split("<");
         String[] dateArray = array[0].trim().split("-");
@@ -60,7 +62,7 @@ public class CallBack implements MqttCallback {
         LocalTime localTime = LocalTime.of(hour, min, sec);
         int amountPeople = parseFromString(array[2].trim());
 
-        sensorService.addNewSensorData(new SensorData(0L, localdate, localTime, amountPeople));
+        sensorDataService.addNewSensorData(new SensorData(0L, localdate, localTime, amountPeople));
     }
 
     /**

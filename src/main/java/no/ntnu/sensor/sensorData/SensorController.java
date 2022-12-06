@@ -1,4 +1,4 @@
-package no.ntnu.sensor;
+package no.ntnu.sensor.sensorData;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -7,11 +7,15 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/**
+ * REST API Controller for sensor data
+ */
+
 @RestController
 @RequestMapping("/sensor")
 public class SensorController {
     @Autowired
-    SensorService sensorService;
+    SensorDataService sensorDataService;
 
     /**
      * Returns all available data.
@@ -20,7 +24,7 @@ public class SensorController {
      */
     @GetMapping
     public List<SensorData> getAll() {
-        return sensorService.getAll();
+        return sensorDataService.getAll();
     }
 
     /**
@@ -32,7 +36,7 @@ public class SensorController {
     @GetMapping("/{id}")
     public ResponseEntity<SensorData> getOne(@PathVariable Integer id) {
         ResponseEntity<SensorData> response;
-        SensorData sensorData = sensorService.findSensorById(id);
+        SensorData sensorData = sensorDataService.findSensorById(id);
         if (sensorData != null) {
             response = new ResponseEntity<>(sensorData, HttpStatus.OK);
         }
@@ -50,7 +54,7 @@ public class SensorController {
     @PostMapping
     public ResponseEntity<String> add(@RequestBody SensorData sensorData) {
         ResponseEntity<String> response;
-        if (sensorService.addNewSensorData(sensorData)) {
+        if (sensorDataService.addNewSensorData(sensorData)) {
             response = new ResponseEntity<>(HttpStatus.OK);
         } else {
             response = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
@@ -67,7 +71,7 @@ public class SensorController {
     @DeleteMapping
     public ResponseEntity<String> delete(@PathVariable SensorData sensorData) {
         ResponseEntity<String> response;
-        if (sensorService.deleteSensor(sensorData)) {
+        if (sensorDataService.deleteSensor(sensorData)) {
             response = new ResponseEntity<>(HttpStatus.OK);
         } else {
             response = new ResponseEntity<>(HttpStatus.NOT_FOUND);

@@ -1,4 +1,4 @@
-import no.ntnu.sensor.Publisher;
+import no.ntnu.sensor.MQTT.Publisher;
 import org.eclipse.paho.client.mqttv3.MqttException;
 import org.junit.Assert;
 import org.junit.Test;

@@ -1,4 +1,4 @@
-package no.ntnu.sensor;
+package no.ntnu.sensor.sensorData;
 
 import org.springframework.stereotype.Service;
 
@@ -7,11 +7,11 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class SensorService {
-    private SensorRepository sensorRepository;
+public class SensorDataService {
+    private SensorDataRepository sensorDataRepository;
 
-    public SensorService(SensorRepository sensorRepository){
-        this.sensorRepository = sensorRepository;
+    public SensorDataService(SensorDataRepository sensorDataRepository){
+        this.sensorDataRepository = sensorDataRepository;
     }
 
     /**
@@ -33,7 +33,7 @@ public class SensorService {
      * @return sensor data if found, or null if not.
      */
     public SensorData findSensorById(int id) {
-        Optional<SensorData> sensor = sensorRepository.findById(id);
+        Optional<SensorData> sensor = sensorDataRepository.findById(id);
         return sensor.orElse(null);
     }
 
@@ -43,7 +43,7 @@ public class SensorService {
      * @return list of sensor data.
      */
     public List<SensorData> getAll() {
-        return iterableToList(sensorRepository.findAll());
+        return iterableToList(sensorDataRepository.findAll());
     }
 
     /**
@@ -55,7 +55,7 @@ public class SensorService {
     public boolean addNewSensorData(SensorData sensorData) {
         boolean added = false;
         if (sensorData != null) {
-            sensorRepository.save(sensorData);
+            sensorDataRepository.save(sensorData);
             added = true;
         }
         return added;
@@ -70,7 +70,7 @@ public class SensorService {
     public boolean deleteSensor(SensorData sensorData) {
         boolean deleted = false;
         if (sensorData != null) {
-            sensorRepository.delete(sensorData);
+            sensorDataRepository.delete(sensorData);
             deleted = true;
         }
         return deleted;
@@ -96,7 +96,7 @@ public class SensorService {
         }
 
         if (errorMessage == null) {
-            sensorRepository.save(sensorData);
+            sensorDataRepository.save(sensorData);
         }
         return errorMessage;
     }

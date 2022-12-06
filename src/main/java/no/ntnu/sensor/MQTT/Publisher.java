@@ -1,4 +1,4 @@
-package no.ntnu.sensor;
+package no.ntnu.sensor.MQTT;
 
 import org.eclipse.paho.client.mqttv3.MqttClient;
 import org.eclipse.paho.client.mqttv3.MqttException;

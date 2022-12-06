@@ -1,9 +1,8 @@
-import no.ntnu.sensor.SensorData;
+import no.ntnu.sensor.sensorData.SensorData;
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 

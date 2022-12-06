@@ -1,4 +1,4 @@
-package no.ntnu.sensor;
+package no.ntnu.sensor.sensorData;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
@@ -7,5 +7,5 @@ import org.springframework.stereotype.Repository;
  * Repository where CRUD operations happen
  */
 @Repository
-public interface SensorRepository extends CrudRepository<SensorData, Integer> {
+public interface SensorDataRepository extends CrudRepository<SensorData, Integer> {
 }

@@ -1,5 +1,6 @@
-package no.ntnu.sensor;
+package no.ntnu.sensor.MQTT;
 
+import no.ntnu.sensor.sensorData.SensorDataService;
 import org.eclipse.paho.client.mqttv3.*;
 import org.springframework.stereotype.Component;
 
@@ -11,7 +12,7 @@ public class Subscriber {
 
     private MqttClient mqttClient;
     private CallBack callBack;
-    private SensorService sensorService;
+    private SensorDataService sensorDataService;
     private static final String SERVER_URL = "tcp://" + "129.241.152.12" + ":" + "1883";
 
     /**
@@ -19,13 +20,13 @@ public class Subscriber {
      *
      * <b>Connection to server is established when creating the MqttClient</b>
      *
-     * @param sensorService Object which stores the data which is to be uploaded.
+     * @param sensorDataService Object which stores the data which is to be uploaded.
      * @throws MqttException If client can not connect to server.
      */
-    public Subscriber(SensorService sensorService) throws MqttException {
-        this.sensorService = sensorService;
+    public Subscriber(SensorDataService sensorDataService) throws MqttException {
+        this.sensorDataService = sensorDataService;
         mqttClient = new MqttClient(SERVER_URL, MqttClient.generateClientId());
-        callBack = new CallBack(sensorService);
+        callBack = new CallBack(sensorDataService);
         mqttClient.setCallback(callBack);
         mqttClient.connect();
         System.out.println("--- Connection Established ---");

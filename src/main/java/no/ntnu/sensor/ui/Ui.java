@@ -1,5 +1,8 @@
-package no.ntnu.sensor;
+package no.ntnu.sensor.ui;
 
+import no.ntnu.sensor.MQTT.Publisher;
+import no.ntnu.sensor.Main;
+import no.ntnu.sensor.sensorData.SensorData;
 import org.eclipse.paho.client.mqttv3.MqttException;
 import org.springframework.boot.SpringApplication;
 
@@ -8,6 +11,9 @@ import java.util.Scanner;
 import static no.ntnu.sensor.Main.*;
 
 public class Ui {
+    static final String MQTT_SERVER_IP = "129.241.152.12";
+    static final String MQTT_SERVER_PORT = "1883";
+
     private static final int END = 1;
     private static final int SUBSCRIBE = 2;
     private static final int PUBLISH = 3;

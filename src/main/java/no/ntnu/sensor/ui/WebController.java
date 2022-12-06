@@ -1,5 +1,7 @@
-package no.ntnu.sensor;
+package no.ntnu.sensor.ui;
 
+import no.ntnu.sensor.sensorData.SensorData;
+import no.ntnu.sensor.sensorData.SensorDataService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,6 +10,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * This is a REST API Controller - returns the HTML file
+ */
+
 @Controller
 public class WebController {
 
@@ -15,7 +21,7 @@ public class WebController {
      * Responsible for displaying data.
      */
     @Autowired
-    private SensorService sensorService;
+    private SensorDataService sensorDataService;
 
     /**
      * Creates a graph of how many people are estimated to be inside area and returns the HTML file.
@@ -26,7 +32,7 @@ public class WebController {
     @RequestMapping("/")
     public String getHome(Model model) {
 
-        List<SensorData> sensorData = sensorService.getAll();
+        List<SensorData> sensorData = sensorDataService.getAll();
         List<Integer> xValues = new ArrayList<>();
         List<Integer> yValues = new ArrayList<>();
 
@@ -36,7 +42,7 @@ public class WebController {
 
         });
 
-        model.addAttribute("allsensorlist", sensorService.getAll());
+        model.addAttribute("allsensorlist", sensorDataService.getAll());
         model.addAttribute("xValues", xValues);
         model.addAttribute("yValues", yValues);
 

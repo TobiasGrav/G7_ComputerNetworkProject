@@ -39,6 +39,7 @@ table{
     width: 74.5%;
     padding: 30px;
     padding-top: 10px;
+    max-width: 765px;
 
 }
 
@@ -81,6 +82,13 @@ h3 {
     display:flex;
     justify-content: center;
     padding: 30px;
+    padding-bottom: 0px;
+}
+
+#val3{
+    padding: 30px;
+    padding-top: 5px;
+    font-size: 32px;
 }
 
 h4 {
@@ -88,4 +96,8 @@ h4 {
     justify-content: center;
     padding: 30px;
     padding-bottom: 0px;
+}
+
+h1 {
+    font-size: 40px;
 }

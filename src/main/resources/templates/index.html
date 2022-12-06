@@ -15,7 +15,10 @@
         <h1>Sensor data</h1>
     </section>
     <section>
-        <h3 id="val3"></h3>
+        <h3>Total people in the building now:</h3>
+        <div>
+            <h3 id="val3"></h3>
+        </div>
     </section>
     <section class="graph">
         <canvas id="myChart" style="width:100%;max-width:700px"></canvas>
@@ -96,15 +99,14 @@
 
                 var rows = document.getElementById("table").getElementsByTagName("tr");
 
+
               for(var i = 0; i < rows.length; i++)
                   { for (var j = 0; j < rows.length; j++) {
                     var first = parseInt(table.rows[i].cells[3].innerHTML);
-                    var second = parseInt(table.rows[i+1].cells[3].innerHTML);
-                    var diff = first - second;
                   }
 
-                console.log("First: "+first+" - second : "+second+" = "+diff);
-                document.getElementById("val3").innerHTML = "Total People in building now: " + diff;
+                console.log("First: "+first);
+                document.getElementById("val3").innerHTML = first;
               }
         </script>
     </section>

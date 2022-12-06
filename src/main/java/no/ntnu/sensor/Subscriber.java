@@ -33,17 +33,6 @@ public class Subscriber {
         System.out.println("--- Subscribed To Topic ---");
     }
 
-    /*
-    public Subscriber(String ip, String port) throws MqttException {
-        mqttClient = new MqttClient("tcp://" + ip + ":" + port, MqttClient.generateClientId());
-        callBack = new CallBack();
-        mqttClient.setCallback(callBack);
-        mqttClient.connect();
-        System.out.println("--- Connection Established ---");
-        mqttClient.subscribe("G7/Test");
-        System.out.println("--- Subscribed To Topic ---");
-    }*/
-
     /**
      * Closes connection to server.
      *

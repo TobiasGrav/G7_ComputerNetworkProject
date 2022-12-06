@@ -1,7 +1,6 @@
 package no.ntnu.sensor;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;

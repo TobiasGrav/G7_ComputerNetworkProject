@@ -67,19 +67,6 @@ public class SensorData {
         this.id = id;
     }
 
-<<<<<<< HEAD
-    /** Returns dateAndTime */
-    public LocalDateTime getDateAndTime() {
-        return dateAndTime;
-    }
-
-    /** Sets datAndTime */
-    public void setDateAndTime(LocalDateTime dateAndTime) {
-        this.dateAndTime = dateAndTime;
-    }
-
-=======
->>>>>>> a46b241afbfd776687e54f714041efde8d1fb5b1
     /** Returns totalPeople */
     public int getTotalPeople() {
         return totalPeople;

@@ -25,7 +25,7 @@ public class Main {
      */
     public static void main(String[] args) throws MqttException, InterruptedException {
 //        SpringApplication.run(Main.class, args);
-        StartApplication();
+        //StartApplication();
 
         SpringApplication.run(Main.class, args);
         //Subscriber subscriber = new Subscriber(MQTT_SERVER_IP, MQTT_SERVER_PORT);

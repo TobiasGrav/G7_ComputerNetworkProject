@@ -24,14 +24,7 @@ public class Main {
      * @param args command line args
      */
     public static void main(String[] args) throws MqttException, InterruptedException {
-//        SpringApplication.run(Main.class, args);
-        //StartApplication();
-
         SpringApplication.run(Main.class, args);
-        //Subscriber subscriber = new Subscriber(MQTT_SERVER_IP, MQTT_SERVER_PORT);
-        //Publisher publisher = new Publisher(MQTT_SERVER_IP, MQTT_SERVER_PORT);
-        //publisher.publishMessage("Hei");
-        //publisher.disconnect();
         //StartApplication();
     }
 

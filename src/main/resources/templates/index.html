@@ -14,6 +14,9 @@
     <section class="header">
         <h1>Sensor data</h1>
     </section>
+    <section>
+        <h3 id="val3"></h3>
+    </section>
     <section class="graph">
         <canvas id="myChart" style="width:100%;max-width:700px"></canvas>
         <div class="graphs">
@@ -40,14 +43,20 @@
                 }
               }
             });
-        </script>
+            </script>
         </div>
     </section>
+    <section>
+        <h4>Table over people passing</h4>
+    </section>
     <section class="table-section">
-            <table class="table">
+            <table class="table" id="table">
                 <tr>
                     <th>
                         Id
+                    </th>
+                    <th>
+                        Date
                     </th>
                     <th>
                         Time
@@ -58,11 +67,53 @@
                 </tr>
                 <tr th:each="sensorData:${allsensorlist}">
                     <td th:text="${sensorData.id}"></td>
-                    <td th:text="${sensorData.dateAndTime}"></td>
-                    <td th:text="${sensorData.totalPeople}"></td>
+                    <td th:text="${sensorData.date}"></td>
+                    <td th:text="${sensorData.time}"></td>
+                    <td th:text="${sensorData.totalPeople}" class="count-me"></td>
                 </tr>
             </table>
     </section>
+
+    <section>
+        <span id="val"></span>
+        <span id="val2"></span>
+
+        <script th:inline="javascript">
+                var table = document.getElementById("table"), sumVal = 0;
+                var total = 0;
+                for (var i = 1; i < table.rows.length; i++) {
+                  sumVal = sumVal + parseInt(table.rows[i].cells[2].innerHTML);
+                }
+                for (var i = 1; i < table.rows.length; i++) {
+                    total += parseInt(table.rows[i].cells[2].innerHTML);
+                    }
+                var avg = total / table.rows.length;
+                console.log(avg);
+                document.getElementById("val").innerHTML = "Total people passing in a day: " + sumVal;
+                document.getElementById("val2").innerHTML = "Average people passing: " + avg;
+                console.log(sumVal);
+
+
+                var rows = document.getElementById("table").getElementsByTagName("tr");
+
+              for(var i = 0; i < rows.length; i++)
+                  { for (var j = 0; j < rows.length; j++) {
+                    var first = parseInt(table.rows[i].cells[3].innerHTML);
+                    var second = parseInt(table.rows[i+1].cells[3].innerHTML);
+                    var diff = first - second;
+                  }
+
+                console.log("First: "+first+" - second : "+second+" = "+diff);
+                document.getElementById("val3").innerHTML = "Total People in building now: " + diff;
+              }
+        </script>
+    </section>
+
+    <footer>
+        <p class="info">
+            This is a project in the course Data Communication and Network Programming at NTNU Ålesund.
+        </p>
+    </footer>
 </body>
 
 </html>

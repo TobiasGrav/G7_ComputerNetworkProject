@@ -1,6 +1,9 @@
 package no.ntnu.sensor;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
+
 import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;
 import org.eclipse.paho.client.mqttv3.MqttCallback;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
@@ -54,11 +57,11 @@ public class CallBack implements MqttCallback {
         int min = parseFromString(timeArray[1]);
         float secondsAsFloat = Float.parseFloat(timeArray[2]);
         int sec = Math.round(secondsAsFloat);
-
-        LocalDateTime localDateTime = LocalDateTime.of(year, month, day, hour, min, sec);
+        LocalDate localdate = LocalDate.of(year, month, day);
+        LocalTime localTime = LocalTime.of(hour, min, sec);
         int amountPeople = parseFromString(array[2].trim());
 
-        sensorService.addNewSensorData(new SensorData(0L, localDateTime, amountPeople));
+        sensorService.addNewSensorData(new SensorData(0L, localdate, localTime, amountPeople));
     }
 
     /**

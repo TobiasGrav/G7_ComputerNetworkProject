@@ -31,7 +31,7 @@ public class WebController {
         List<Integer> yValues = new ArrayList<>();
 
         sensorData.forEach(sensor -> {
-            xValues.add(sensor.getDateAndTime().getHour());
+            xValues.add(sensor.getTime().getHour());
             yValues.add(sensor.getTotalPeople());
 
         });

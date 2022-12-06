@@ -1,6 +1,7 @@
 package no.ntnu.sensor;
 
 import org.eclipse.paho.client.mqttv3.MqttException;
+import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
@@ -23,15 +24,8 @@ public class Main {
      * @param args command line args
      */
     public static void main(String[] args) throws MqttException, InterruptedException {
-//        SpringApplication.run(Main.class, args);
+        SpringApplication.run(Main.class, args);
         //StartApplication();
-        //SpringApplication.run(Main.class, args);
-        //Subscriber subscriber = new Subscriber(MQTT_SERVER_IP, MQTT_SERVER_PORT);
-        //Publisher publisher = new Publisher(MQTT_SERVER_IP, MQTT_SERVER_PORT);
-        //publisher.publishMessage("Hei");
-        //publisher.disconnect();
-        //StartApplication();
-        Ui.start(args);
     }
 
     /**

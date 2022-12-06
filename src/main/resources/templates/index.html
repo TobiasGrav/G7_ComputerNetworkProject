@@ -12,15 +12,18 @@
 
 <body>
     <section class="header">
-        <h1>Sensor data</h1>
+        <h1>Entrance data</h1>
     </section>
     <section>
-        <h3>Total people in the building now:</h3>
         <div>
-            <h3 id="val3"></h3>
+            <h3><span>Total people now:</span></h3>
+            <h3>
+                <span id="val3"></span>
+            </h3>
         </div>
     </section>
     <section class="graph">
+        <h3><span class="graph-over-people">Graph over total people</span></h3>
         <canvas id="myChart" style="width:100%;max-width:700px"></canvas>
         <div class="graphs">
             <script th:inline="javascript">
@@ -49,11 +52,9 @@
             </script>
         </div>
     </section>
-    <section>
-        <h4>Table over people passing</h4>
-    </section>
     <section class="table-section">
-            <table class="table" id="table">
+        <h3>Table over people passing</h3>
+        <table class="table" id="table">
                 <tr>
                     <th>
                         Id
@@ -73,11 +74,11 @@
                     <td th:text="${sensorData.date}"></td>
                     <td th:text="${sensorData.time}"></td>
                     <td th:text="${sensorData.totalPeople}" class="count-me"></td>
-                </tr>
             </table>
     </section>
 
     <section>
+        <h3>A bit of statistics over the data</h3>
         <span id="val"></span>
         <span id="val2"></span>
 
@@ -110,10 +111,21 @@
               }
         </script>
     </section>
+    <section class="info">
+        <h3>Information about the data</h3>
+        <ul>
+            <li>Id represents the id of the time the sensor registered that people passed by</li>
+            <li>Date is the date that the people passed by</li>
+            <li>Time is the time given in hour, minutes and seconds.</li>
+            <li>Total people is the total people in the building. When total people reduces,
+            it means that people are leaving the building. When it increases, people are walking into the building.</li>
+        </ul>
+    </section>
 
     <footer>
-        <p class="info">
-            This is a project in the course Data Communication and Network Programming at NTNU Ålesund.
+        <p>
+            ©Group 7: This is a project in the course Data Communication and Network Programming at NTNU Ålesund.
+
         </p>
     </footer>
 </body>

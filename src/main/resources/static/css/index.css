@@ -14,12 +14,17 @@
 
 .table-section {
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
+
 }
 
 .graph {
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
 }
 
 #users-to-be-filled-from-db div{
@@ -81,14 +86,18 @@ span {
 h3 {
     display:flex;
     justify-content: center;
-    padding: 30px;
-    padding-bottom: 0px;
+}
+
+h3 total-people {
+    padding: 10px;
 }
 
 #val3{
-    padding: 30px;
+    padding: 10px;
     padding-top: 5px;
     font-size: 32px;
+    background: white;
+    border: 1px solid black;
 }
 
 h4 {
@@ -100,4 +109,28 @@ h4 {
 
 h1 {
     font-size: 40px;
+}
+
+ul {
+    padding: 30px;
+}
+
+section {
+    margin: 40px;
+}
+
+title {
+    padding: 15px;
+    padding-bottom: 5px;
+}
+
+.graph-over-people {
+    padding: 10px;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }

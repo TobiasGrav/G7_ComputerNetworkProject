@@ -24,8 +24,7 @@ public class Main {
      * @param args command line args
      */
     public static void main(String[] args) throws MqttException, InterruptedException {
-        SpringApplication.run(Main.class, args);
-        //StartApplication();
+        Ui.start(args);
     }
 
     /**

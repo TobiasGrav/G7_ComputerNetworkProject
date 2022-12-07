@@ -1,7 +1,6 @@
 package no.ntnu.sensor;
 
 import no.ntnu.sensor.ui.Ui;
-import no.ntnu.sensor.MQTT.Publisher;
 import no.ntnu.sensor.sensorData.SensorData;
 import org.eclipse.paho.client.mqttv3.MqttException;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -17,8 +16,6 @@ import java.util.Random;
 @SpringBootApplication
 @EnableJpaRepositories
 public class Main {
-    static final String MQTT_SERVER_IP = "129.241.152.12";
-    static final String MQTT_SERVER_PORT = "1883";
 
     /**
      * Runs the application
@@ -26,21 +23,6 @@ public class Main {
      */
     public static void main(String[] args) throws MqttException, InterruptedException {
         Ui.start(args);
-    }
-
-    /**
-     * Starts application.
-     *
-     * @throws MqttException If client can not connect to server.
-     * @throws InterruptedException If sleep is interrupted.
-     */
-    public static void StartApplication() throws MqttException, InterruptedException {
-        Publisher publisher = new Publisher(MQTT_SERVER_IP, MQTT_SERVER_PORT);
-        for (SensorData data : makeSensorData()) {
-            publisher.publishMessage(data.getSensorDataAsString());
-            System.out.println(data.getSensorDataAsString());
-            Thread.sleep(10000);
-        }
     }
 
     /**

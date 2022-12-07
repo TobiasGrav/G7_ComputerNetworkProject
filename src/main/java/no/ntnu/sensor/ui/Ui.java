@@ -10,6 +10,9 @@ import java.util.Scanner;
 
 import static no.ntnu.sensor.Main.*;
 
+/**
+ * responsible for communicating with the user.
+ */
 public class Ui {
     static final String MQTT_SERVER_IP = "129.241.152.12";
     static final String MQTT_SERVER_PORT = "1883";
@@ -22,6 +25,11 @@ public class Ui {
 
     }
 
+    /**
+     * Shows user options and returns user choice.
+     *
+     * @return User menu choice.
+     */
     public static int showMenu() {
         int menuChoice = 0;
         System.out.println("Press 1 to exit application." + "\n"
@@ -37,18 +45,13 @@ public class Ui {
         return menuChoice;
     }
 
-    public int waitScreen() {
-        int menuChoice = 0;
-        System.out.println("Press 1 to exit");
-        Scanner sc = new Scanner(System.in);
-        if (sc.hasNextInt()) {
-            menuChoice = sc.nextInt();
-        } else {
-            System.out.println("Please enter a number");
-        }
-        return menuChoice;
-    }
-
+    /**
+     * Takes and responds to user input.
+     *
+     * @param args command line args.
+     * @throws MqttException If there is a problem communicating with MQTT broker.
+     * @throws InterruptedException If the sleep is interrupted.
+     */
     public static void start(String[] args) throws MqttException, InterruptedException {
         boolean finished = false;
         while(!finished) {
@@ -57,9 +60,15 @@ public class Ui {
             switch (menuChoice) {
                 case END -> finished = true;
 
-                case SUBSCRIBE -> SpringApplication.run(Main.class, args);
+                case SUBSCRIBE -> {
+                    SpringApplication.run(Main.class, args);
+                    finished = true;
+                }
 
-                case PUBLISH -> StartApplication();
+                case PUBLISH -> {
+                    StartApplication();
+                    finished = true;
+                }
 
                 default -> System.out.println("Please press a number between 1 and 3");
             }

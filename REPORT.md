@@ -120,6 +120,10 @@ Our project has a database, website, simulated sensor, and MQTT-client. These wo
 
 Further work would be implementing physical sensors that can send data to be stored in our database. These sensors would be placed in each entrance/exit of the building we would want to monitor. We would also implement multi building surveillance, meaning you could monitor multiple buildings with the application. Where sensors are connected to each building, to distinguish them in the data. 
 
+One of our main wishes was to create a web server which could stream live data to the client. However, we tried to do this directly in IntelliJ, but this proved to be a very complex solution to our problem. A better way to do this would have been to create a separate JavaScript project, where its only responsibility would have been to forward data to the end user from the database, with the use of WebSocket. However, we came to this conclusion too late in the project and realized this would be too time-consuming. We did end up starting on one and the ability to stream data to the client was successful, but we didn’t have time to implement it in our final solution.
+
+Link to git repo for WebSocket: https://github.com/TobiasGrav/G7_ComputerNetworkProject_WebServer
+
 We would also like to implement a mobile application for our solution. This would make it so you could monitor or check data you are interested in, for example how many people went into the building on a specific day, or week, and do it all from your mobile phone. 
 
 ---

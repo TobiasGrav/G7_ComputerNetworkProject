@@ -97,6 +97,10 @@ For the excellence work the following have been added:
 
 ## Conclusion and future work
 
+Our project has a database, website, simulated sensor, and MQTT-client. These work together to form our application alongside our business logic. We present our sensor data on our website using the data in the database. We are sending data from our simulated sensor to MQTT and using a subscriber node on the MQTT-server to fetch and store the sensor data in our database. 
+Further work would be implementing physical sensors that can send data to be stored in our database. These sensors would be placed in each entrance/exit of the building we would want to monitor. We would also implement multi building surveillance, meaning you could monitor multiple buildings with the application. Where sensors are connected to each building, to distinguish them in the data. 
+We would also like to implement a mobile application for our solution. This would make it so you could monitor or check data you are interested in, for example how many people went into the building on a specific day, or week, and do it all from your mobile phone. 
+
 ---
 
 ## References

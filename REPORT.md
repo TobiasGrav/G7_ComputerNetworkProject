@@ -81,7 +81,9 @@ In addition, there was also another decision to have a local project, where the 
 Our application creates its own dummy data to demonstrate its functionality. The data is stored utilizing the spring framework crud interface so it can be stored in our database, which makes it easier to access for Spring. Thymeleaf is used to connect HTML to Java. 
 
 The application generates its own dummy data in a way which is not realistic when taking the available sensor nodes into consideration. Since the node does not have an internal clock, it would not be able to provide the time of the recorded movement. The application does not currently support having sensors at multiple locations as all recorded data is assumed to be from the same location. It does, however, support multiple sensors for the same location. The business logic is robust and well designed in a way which makes it easy to integrate in the rest of our applications. 
+
 Our project has two applications. The first is to publish sensor data to the MQTT-broker and the second is to run the whole application which subscribes to the MQTT-broker and fetches data, formatting the data, then stores it in our database, displaying it to our website.
+
 For the excellence work the following have been added:
 
 *	A simple working database. This database stores sensor data (dummy data for now) sent by our simulated sensor in a single table. This data be accessed and displayed.
@@ -98,7 +100,9 @@ For the excellence work the following have been added:
 ## Conclusion and future work
 
 Our project has a database, website, simulated sensor, and MQTT-client. These work together to form our application alongside our business logic. We present our sensor data on our website using the data in the database. We are sending data from our simulated sensor to MQTT and using a subscriber node on the MQTT-server to fetch and store the sensor data in our database. 
+
 Further work would be implementing physical sensors that can send data to be stored in our database. These sensors would be placed in each entrance/exit of the building we would want to monitor. We would also implement multi building surveillance, meaning you could monitor multiple buildings with the application. Where sensors are connected to each building, to distinguish them in the data. 
+
 We would also like to implement a mobile application for our solution. This would make it so you could monitor or check data you are interested in, for example how many people went into the building on a specific day, or week, and do it all from your mobile phone. 
 
 ---

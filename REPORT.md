@@ -98,6 +98,20 @@ For the excellence work the following have been added:
 
 ## Discussion
 
+The application can send and receive data via MQTT, which was the main task. MQTT- callback will give the user a heads-up if the connection gets lost for some reason. In addition, the data is added to a database and visualized on a monotone website. 
+
+However, physical sensors were not used in this project, so the data is not true to real life, partly because of unrealistic data generation. They are simulated in Java. 
+
+Given more time changing the way we generate data would be a priority. Either by making a sensor node or refactoring the dummy data generation.
+
+After the data is generated however, we have a well-functioning and robust application which does what we want it to do. It both sends and receives data without issue and displays it in a manner which is easy to read. If the sensor itself would provide accurate data our application would easily be able to provide solutions to every problem we aimed to solve.
+
+Although we are happy with our website, it might not be a part of a final product if we were to deliver a finished product to a customer. Never the less it is useful in demonstrating that the application works, and in part, how it works. 
+
+If we where to improve one aspect of the website it would be automatically updating it in real time for the users without them having to refresh.
+
+We have a simple user interface to start the application in either subscriber or publisher mode, but this should not be necessary as the publisher should always be a sensor node. This is just for convenience.
+
 --- 
 
 ## Conclusion and future work

@@ -84,9 +84,9 @@ The application generates its own dummy data in a way which is not realistic whe
 Our project has two applications. The first is to publish sensor data to the MQTT-broker and the second is to run the whole application which subscribes to the MQTT-broker and fetches data, formatting the data, then stores it in our database, displaying it to our website.
 For the excellence work the following have been added:
 
-•	A simple working database. This database stores sensor data (dummy data for now) sent by our simulated sensor in a single table. This data be accessed and displayed.
-•	Sensor data is being displayed on a website using HTML, CSS and JavaScript.
-•	The display includes graphs with some statistics of the sensor data.
+*	A simple working database. This database stores sensor data (dummy data for now) sent by our simulated sensor in a single table. This data be accessed and displayed.
+*	Sensor data is being displayed on a website using HTML, CSS and JavaScript.
+*	The display includes graphs with some statistics of the sensor data.
 
 
 ---

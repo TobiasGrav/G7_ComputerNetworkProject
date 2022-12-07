@@ -126,11 +126,11 @@ We would also like to implement a mobile application for our solution. This woul
 
 ## References
 
-ibm. 2022. ibm.com. 12 06. Accessed 12 06, 2022. https://www.ibm.com/docs/en/ibm-mq/7.5?topic=SSFKSJ_7.5.0/com.ibm.mq.javadoc.doc/WMQMQxrClasses/org/eclipse/paho/client/mqttv3/package-summary.html.
+* ibm. 2022. ibm.com. 12 06. Accessed 12 06, 2022. https://www.ibm.com/docs/en/ibm-mq/7.5?topic=SSFKSJ_7.5.0/com.ibm.mq.javadoc.doc/WMQMQxrClasses/org/eclipse/paho/client/mqttv3/package-summary.html.
 
-Spring. 2022. spring.io/projects/spring-framework. 12 06. Accessed 12 06, 2022. https://spring.io/projects/spring-framework.
+* Spring. 2022. spring.io/projects/spring-framework. 12 06. Accessed 12 06, 2022. https://spring.io/projects/spring-framework.
 
-thymeleaf. 2022. thymeleaf.org. 11 17. Accessed 06 12, 2022. https://www.thymeleaf.org/.
+* thymeleaf. 2022. thymeleaf.org. 11 17. Accessed 06 12, 2022. https://www.thymeleaf.org/.
 
 
 

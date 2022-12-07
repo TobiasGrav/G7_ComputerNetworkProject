@@ -69,8 +69,11 @@ First, we will go into what types of protocols we used. After that, we will show
 
 ## Methodology
 The methodology agile has been used for this project. First, the group sat down to figure out what the project should be based on, and ideas around the project (brainstorming). After that the workload was split into phases, meaning for every phase there was some work to do as a team for each phase. As a team the whole group worked together, or in pairs. The group helped each other when needed, motivated and pushed each other to work, so the final product could be good.
+
 The following design principles were used: responsibility driven design, cohesion, coupling and modularization to get a well-designed application.
+
 When planning the project, the initial thought was to use a microcontroller with sensors, but it was later decided against in the final decision. This was because we had no prior experience with microcontrollers/sensors and therefore used way too much time to figure it out and then decided to drop it. Instead, the decision was to use simulated sensor data within our application. This decision was to show that our application works in practice, and later it could implement live sensors sending data if there was time left.
+
 In addition, there was also another decision to have a local project, where the database, webserver and everything is on the local machine. This was due to getting a working solution. Afterwards, the application would get published on a public network. 
 
 ---

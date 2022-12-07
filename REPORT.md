@@ -50,7 +50,7 @@ First, we will go into what types of protocols we used. After that, we will show
 
 - However, If TCP was not used and UDP was used instead. We would not know if there was sensor data missing. Meaning TCP ensures reliable data transfer, so we know only one message will be received for each message sent by a sensor. This is important for the solution because it needs every entrance and exit for each person in a building recorded/logged in the database.
 
-- MQTT is an application layer protocol which implements a subscriber listener model for distributing information. The application utilizes MQTT-client to establish a connection with the MQTT server/broker. MQTT also makes sure that there are listeners who will receive the messages sent by publisher. MQTT uses port 1883. This is useful for the solution since the users want to send/publish data from their sensors, and then use a listener/subscriber to fetch, format and then store the data in the database.
+- MQTT is an application layer protocol which implements a subscriber listener model for distributing information (ibm 2022). The application utilizes MQTT-client to establish a connection with the MQTT server/broker. MQTT also makes sure that there are listeners who will receive the messages sent by publisher. MQTT uses port 1883. This is useful for the solution since the users want to send/publish data from their sensors, and then use a listener/subscriber to fetch, format and then store the data in the database.
 
 ![Figure 1, Wireshark screenshot showing how TCP is used to establish and maintains connection to MQTT broker, and MQTT message and [ACK].](src/main/resources/Images/wireshark.png)
 
